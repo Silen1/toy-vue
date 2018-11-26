@@ -1,52 +1,36 @@
+import { isPlainObj } from '../shared/util'
+
 const data = {
-  player: 'James Harden',
-  team: 'Houston Rockets'
+  name: 'James Harden',
+  team: 'Houston Rockets',
+  teammate: {
+    name: 'paul',
+    team: {
+      now: 'rockets',
+      before: 'clippers'
+    }
+  }
 }
-let target = null
-function walk(data) {
-  for (let key in data) {
-    const dep = []
-    let value = data[key]
+
+function walk(obj) {
+  Object.keys(obj).forEach((key) => {
+    // 递归 以对data深度观测
+    const value = obj[key]
     if (Object.prototype.toString.call(value) === '[object Object]') {
       walk(value)
     }
-    Object.defineProperty(data, key, {
-      set (newVal) {
-        if (newVal === value) return
-        value = newVal
-        dep.forEach(f => {
-          f()
-        })
-      },
-      get () {
-        dep.push(target)
-        return value
-      }
-    })
-  }
+    console.log(1, key)
+  })
 }
+
 walk(data)
-function myWatch(exp, fn) {
-  target = fn
-  if (typeof exp === 'function') {
-    exp()
-    return
-  }
-  let pathArr,
-      obj = data
-  if (/\./.test(exp)) {
-    pathArr = exp.split('.')
-    pathArr.forEach(p => {
-      target = fn
-      obj = obj[p]
-    })
-    return
-  }
-  data[exp]
+
+function myWatch() {
+
 }
 
 function render() {
-  document.body.innerText = `The last season's MVP is ${data.player}, he's from ${data.team}`
+  document.body.innerText = `The last season's MVP is ${data.name}, he's from ${data.team}, he has a teammate ${data.teammate.name}`
 }
 
-myWatch(render, render)
+render()
