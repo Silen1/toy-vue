@@ -16,3 +16,8 @@ export function isPrimitive (value) {
 export function isValidArrayIndex (value) {
   return value >= 0 && isFinite(value) && Math.floor(value) == value
 }
+
+// 判断是否为对象自身属性
+export function hasOwn (obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj, key)
+}
