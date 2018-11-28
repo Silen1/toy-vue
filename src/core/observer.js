@@ -28,7 +28,7 @@ class Observer {
 let basket
 
 // 将某一属性定义为响应式属性
-function defineReactive (obj, key) {
+export function defineReactive (obj, key, val) {
   const deps = []
 
   const property = Object.getOwnPropertyDescriptor(obj, key)
@@ -40,6 +40,9 @@ function defineReactive (obj, key) {
   const setter = property && property.set
 
   let value = obj[key]
+  if (arguments.length === 3) {
+    value = val
+  }
   observe(value) // 实现深度观测
 
   Object.defineProperty(obj, key, {

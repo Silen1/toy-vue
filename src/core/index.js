@@ -1,4 +1,5 @@
 import {observe, myWatch} from './observer'
+import set from './set'
 
 let data = {
   name: 'James Harden',
@@ -14,14 +15,13 @@ let data = {
 }
 
 function render() {
-  document.body.innerText = `The last season's MVP is ${data.name}, he's from ${data.team}, he has a teammate ${data.teammate.name}, ${data.teammate.name} was played for ${data.teammate.team.before}`
+  document.body.innerText = `The last season's MVP is ${data.name}, he's from ${data.team}, he has a teammate ${data.teammate.name}, ${data.teammate.name} was played for ${data.teammate.team.before}, he is ${data.age} this year`
 }
 
 observe(data)
 
-myWatch(render, render)
+set(data, 'age', 40)
 
-data.name = 123
-data.stars.push(1)
+myWatch(render, render)
 
 
