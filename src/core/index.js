@@ -1,4 +1,5 @@
-import {observe, myWatch} from './observer'
+import {observe} from './observer'
+import Watcher from './watcher'
 import set from './set'
 
 let data = {
@@ -22,6 +23,6 @@ observe(data)
 
 set(data, 'age', 40)
 
-myWatch(render, render)
+new Watcher(render)
 
 

@@ -3,6 +3,7 @@ export function isPlainObj (value) {
   return Object.prototype.toString.call(value) === '[object Object]'
 }
 
+// 判断是否为undefined或null
 export function isUndef (value) {
   return value === undefined || value === null
 }

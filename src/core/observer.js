@@ -1,4 +1,5 @@
 import { isPlainObj } from '../shared/util'
+import Dep from './dep'
 
 class Observer {
   constructor (value) {
@@ -24,12 +25,9 @@ class Observer {
   }
 }
 
-// 收集依赖的篮子
-let basket
-
 // 将某一属性定义为响应式属性
 export function defineReactive (obj, key, val) {
-  const deps = []
+  const deps = new Dep();
 
   const property = Object.getOwnPropertyDescriptor(obj, key)
   if (property && !property.configurable) { // 如果指定的属性不在该对象上 会返回undefined
@@ -50,7 +48,7 @@ export function defineReactive (obj, key, val) {
       if (getter) {
         value = getter.call(obj)
       }
-      deps.push(basket)
+      deps.depend()
       return value
     },
     set (newVal) {
@@ -66,9 +64,7 @@ export function defineReactive (obj, key, val) {
         value = newVal
       }
       observe(newVal) // 新值可能是对象 继续观察新值
-      deps.forEach((fn) => {
-        fn()
-      })
+      deps.notify()
     }
   })
 }
@@ -98,21 +94,3 @@ methodsToPatch.forEach((method) => {
     console.log(`我捕获了数组的${method}方法`)
   }
 })
-
-export function myWatch (exp, depFn) {
-  basket = depFn
-  if (typeof exp === 'function') {
-    exp()
-    return
-  }
-  if (/\./.test(exp)) {
-    let helpData = data
-    exp.split('.').forEach((path) => {
-      helpData = helpData[path]
-    })
-    return
-  }
-  data[exp]
-}
-
-
