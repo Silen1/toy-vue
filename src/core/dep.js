@@ -1,5 +1,3 @@
-let uid = 0
-
 export default class Dep {
   subs = []
 

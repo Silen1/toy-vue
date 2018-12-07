@@ -20,6 +20,7 @@ export default class Watcher {
         return data[expOrFn]
       }
     }
+    this.get()
   }
 
   get () {
