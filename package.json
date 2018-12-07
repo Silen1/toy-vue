@@ -1,5 +1,5 @@
 {
-  "name": "my-wheel-vue",
+  "name": "toy-vue",
   "version": "1.0.0",
   "description": "learning Vue.js source code",
   "directories": {
@@ -19,13 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/summer9411/myWheel-vue.git"
+    "url": "git+https://github.com/summer9411/toy-vue.git"
   },
   "keywords": [],
   "author": "zhouhuan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/summer9411/myWheel-vue/issues"
+    "url": "https://github.com/summer9411/toy-vue/issues"
   },
-  "homepage": "https://github.com/summer9411/myWheel-vue#readme"
+  "homepage": "https://github.com/summer9411/toy-vue#readme"
 }
