@@ -1,0 +1,66 @@
+Arguments: 
+  /Users/zhouhuan/.nvm/versions/node/v6.14.2/bin/node /usr/local/Cellar/yarn/1.12.3/libexec/bin/yarn.js add babel-plugin-transform-class-properties
+
+PATH: 
+  /Users/zhouhuan/.nvm/versions/node/v6.14.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  6.14.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://registry.npm.souche-inc.com/babel-plugin-syntax-dynamic-import: Request "http://registry.npm.souche-inc.com/babel-plugin-syntax-dynamic-import" returned a 403
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:65903:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129018:22)
+      at emitTwo (events.js:106:13)
+      at Request.emit (events.js:191:7)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129990:10)
+      at emitOne (events.js:96:13)
+      at Request.emit (events.js:188:7)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129912:12)
+      at IncomingMessage.g (events.js:292:16)
+      at emitNone (events.js:91:20)
+
+npm manifest: 
+  {
+    "name": "toy-vue",
+    "version": "1.0.0",
+    "description": "learning Vue.js source code",
+    "directories": {
+      "test": "test1"
+    },
+    "dependencies": {
+      "babel-plugin-syntax-dynamic-import": "^6.18.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-stage-0": "^6.24.1"
+    },
+    "devDependencies": {
+      "babel-core": "^6.26.3"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "parcel test/index.html"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/summer9411/toy-vue.git"
+    },
+    "keywords": [],
+    "author": "zhouhuan",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/summer9411/toy-vue/issues"
+    },
+    "homepage": "https://github.com/summer9411/toy-vue#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
